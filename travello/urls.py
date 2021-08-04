@@ -4,7 +4,7 @@ from django.urls.resolvers import URLPattern
 from . import views
 
 urlpatterns=[
-    path('',views.home,name='home'),
-    path('add',views.add,name='add'),
+    path('',views.index,name='index'),
+   
 
 ];
