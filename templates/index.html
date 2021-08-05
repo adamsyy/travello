@@ -1,4 +1,5 @@
 {% load static %}
+{% static "images" as baseUrl %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -250,77 +251,22 @@
 					<div class="destinations_container item_grid">
 
 						<!-- Destination -->
+						{% for dest in dests%}
+						
 						<div class="destination item">
 							<div class="destination_image">
-								<img src="{% static 'images/destination_1.jpg' %}" alt="">
+								<img src="{{baseUrl}}/{{dest.img}}" alt="">
+								{% if dest.offer%}
 								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+								{% endif %}
 							</div>
 							<div class="destination_content">
-								<div class="destination_title"><a href="{% static 'destinations.html' %}">Bali</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
+								<div class="destination_title"><a href="{% static 'destinations.html' %}">{{dest.name}}</a></div>
+								<div class="destination_subtitle"><p>{{dest.desc}}.</p></div>
+								<div class="destination_price">From ${{dest.price}}</div>
 							</div>
 						</div>
-
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_2.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="destinations.html">Indonesia</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
-
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_3.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="destinations.html">San Francisco</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
-
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_4.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="destinations.html">Paris</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
-
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_5.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="destinations.html">Phi Phi Island</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
-
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_6.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="destinations.html">Mykonos</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
+                               {% endfor%}
 
 					</div>
 				</div>
